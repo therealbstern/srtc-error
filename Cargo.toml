@@ -1,0 +1,30 @@
+[package]
+name = "srtc-error"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+embedded-hal = "0.2"
+teensy4-panic = "0.2"
+smart-leds = "0.3"
+smart-leds-trait = "0.2"
+ws2812-nop-imxrt1062 = "0.2"
+
+[dependencies.teensy4-bsp]
+version = "0.4"
+features = ["rt"]
+
+# Don't optimize build dependencies, like proc macros.
+# Helps with build times.
+[profile.release.build-override]
+opt-level = 0
+
+[dependencies.imxrt-hal]
+version = "0.5"
+
+[dependencies.imxrt-ral]
+version = "0.5"
+features = ["imxrt1062"]
+
